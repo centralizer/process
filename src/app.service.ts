@@ -1,8 +1,18 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Get } from '@nestjs/common';
+
+import { YoutubeDownloadProducer } from './queues/producers/youtube-download.producer';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  constructor(
+    private readonly youtubeDownloadProducer: YoutubeDownloadProducer,
+  ) {}
+
+
+  trigger(): string {
+    
+    this.youtubeDownloadProducer.queueJob({});
+
+    return "hello";
   }
 }
