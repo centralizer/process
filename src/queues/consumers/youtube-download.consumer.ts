@@ -19,6 +19,7 @@ export class YoutubeDownloadConsumer {
 
   @OnQueueError()
   private async onError(job: Job) {
+    console.log("OnQueueError ========");
     const { data = {} as any } = job;
 
     this.cleanup(data);
@@ -26,6 +27,7 @@ export class YoutubeDownloadConsumer {
 
   @OnQueueFailed()
   private async onFailed(job: Job) {
+    console.log("OnQueueFailed ========");
     const { data = {} as any } = job;
 
     this.cleanup(data);
