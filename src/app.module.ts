@@ -11,6 +11,12 @@ import { YoutubeDownloadProducer } from "./queues/producers/youtube-download.pro
 
 const env = dotenv.config({ path: path.resolve(`.env.${process.env.NODE_ENV}`) });
 
+console.log("startup ========");
+console.log(env.parsed.REDIS_HOST)
+console.log(env.parsed.REDIS_PORT)
+console.log(env.parsed.REDIS_PASS)
+console.log("startup ========");
+
 @Module({
   imports: [
     BullModule.forRoot({
