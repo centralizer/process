@@ -8,9 +8,12 @@ export class AppService {
     private readonly youtubeDownloadProducer: YoutubeDownloadProducer,
   ) {}
 
+  public async healthCheck(): Promise<string> {
+    return "Centralizer API";
+  }
 
-  trigger(): string {
-    
+
+  public async trigger() {
     this.youtubeDownloadProducer.queueJob({});
 
     return "hello";
